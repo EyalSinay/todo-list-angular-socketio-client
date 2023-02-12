@@ -6,7 +6,7 @@ import { Task } from 'src/app/models/task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  allExistingTasks = this.socket.fromEvent<Task[]>('new-connection');
+  allTasks = this.socket.fromOneTimeEvent<Task[]>('new-connection');
   newTask = this.socket.fromEvent<Task>('create-task');
   taskUpdated = this.socket.fromEvent<{ taskId: string; task: Task }>(
     'update-task'
