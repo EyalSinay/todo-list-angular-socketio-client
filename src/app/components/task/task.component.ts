@@ -1,5 +1,5 @@
 import { Task } from 'src/app/models/task.model';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent {
+  @Input() task: Task = { _id: '', task: '', done: false, isOnEdit: false };
+
+  constructor() {}
 }
