@@ -25,5 +25,14 @@ export class TaskListComponent {
         this.allTasks.splice(indexTaskToUpdate, 1, updatedTask);
       }
     });
+
+    this.taskService.taskDeleted.subscribe((taskId) => {
+      const indexTaskToDelete = this.allTasks.findIndex(
+        (task) => task._id === taskId
+      );
+      if (indexTaskToDelete > -1) {
+        this.allTasks.splice(indexTaskToDelete, 1);
+      }
+    });
   }
 }
