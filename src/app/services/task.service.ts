@@ -8,9 +8,7 @@ import { Task } from 'src/app/models/task.model';
 export class TaskService {
   allTasks = this.socket.fromOneTimeEvent<Task[]>('new-connection');
   newTask = this.socket.fromEvent<Task>('create-task');
-  taskUpdated = this.socket.fromEvent<{ taskId: string; task: Task }>(
-    'update-task'
-  );
+  taskUpdated = this.socket.fromEvent<Task>('update-task');
   taskDeleted = this.socket.fromEvent<string>('delete-task');
 
   constructor(private socket: Socket) {}
@@ -19,8 +17,8 @@ export class TaskService {
     this.socket.emit('create-task', text);
   }
 
-  updateTask(taskId: string, newTask: Task) {
-    this.socket.emit('update-task', { taskId, newTask });
+  updateTask(newTask: Task) {
+    this.socket.emit('update-task', newTask);
   }
 
   deleteTask(taskId: string) {

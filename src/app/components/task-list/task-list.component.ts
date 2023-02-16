@@ -14,6 +14,16 @@ export class TaskListComponent {
 
   ngOnInit(): void {
     this.taskService.allTasks.then((tasks) => (this.allTasks = tasks));
+
     this.taskService.newTask.subscribe((task) => this.allTasks.push(task));
+
+    this.taskService.taskUpdated.subscribe((updatedTask) => {
+      const indexTaskToUpdate = this.allTasks.findIndex(
+        (task) => task._id === updatedTask._id
+      );
+      if (indexTaskToUpdate > -1) {
+        this.allTasks.splice(indexTaskToUpdate, 1, updatedTask);
+      }
+    });
   }
 }
