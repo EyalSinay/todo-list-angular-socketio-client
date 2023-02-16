@@ -15,8 +15,8 @@ export class TaskService {
 
   constructor(private socket: Socket) {}
 
-  addNewTask(task: Task) {
-    this.socket.emit('create-task', task);
+  addNewTask(text: String) {
+    this.socket.emit('create-task', text);
   }
 
   updateTask(taskId: string, newTask: Task) {
