@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent {
-  @Input() task: Task = { _id: '', task: '', done: false, isOnEdit: false };
+  @Input() task: Task = { _id: '', text: '', done: false, isOnEdit: false };
 
   constructor() {}
 }
