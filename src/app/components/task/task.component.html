@@ -19,7 +19,7 @@
   <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
     <div class="d-flex flex-row justify-content-end mb-1">
       <button type="button" class="btn btn-warning">Edit</button>
-      <button type="button" class="btn btn-danger">Delete</button>
+      <button (click)="deleteTask(task._id)" type="button" class="btn btn-danger">Delete</button>
     </div>
   </li>
 </ul>
