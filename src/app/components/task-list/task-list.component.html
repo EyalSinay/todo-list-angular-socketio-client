@@ -11,23 +11,7 @@
             <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
               Todo List
             </p>
-            <div class="pb-2">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-row align-items-center">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      id="exampleFormControlInput1"
-                      placeholder="Add new..."
-                    />
-                    <div>
-                      <button type="button" class="btn btn-primary">Add</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <app-create-task></app-create-task>
             <hr class="my-4" />
 
             <app-task *ngFor="let task of allTasks" [task]="task"> </app-task>

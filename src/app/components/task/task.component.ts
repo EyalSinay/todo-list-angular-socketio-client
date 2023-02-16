@@ -13,7 +13,6 @@ export class TaskComponent {
   constructor(private taskService: TaskService) {}
 
   deleteTask(taskId: string) {
-    this.task.text = "Loading...";
     this.taskService.deleteTask(taskId);
   }
 }

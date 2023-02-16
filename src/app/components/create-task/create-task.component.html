@@ -1,0 +1,19 @@
+<div class="pb-2">
+	<div class="card">
+	  <div class="card-body">
+		<div class="d-flex flex-row align-items-center">
+		  <input
+			type="text"
+			class="form-control form-control-lg"
+			[(ngModel)]="newTaskText"
+			name="new-task-text"
+			id="new-task-text"
+			placeholder="Add new..."
+		  />
+		  <div>
+			<button (click)="createTask()" type="button" class="btn btn-primary">Add</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
