@@ -17,17 +17,42 @@
   <li
     class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
   >
-    <label for="{{ task._id }}">{{ task.text }}</label>
+    <label *ngIf="!task.isOnEdit" for="{{ task._id }}">{{ task.text }}</label>
+    <input *ngIf="task.isOnEdit" type="text" [(ngModel)]="newTaskText" />
   </li>
   <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
     <div class="d-flex flex-row justify-content-end mb-1">
-      <button type="button" class="btn btn-warning">Edit</button>
       <button
+        *ngIf="!task.isOnEdit"
+        (click)="onEditClick()"
+        type="button"
+        class="btn btn-warning"
+      >
+        Edit
+      </button>
+      <button
+        *ngIf="!task.isOnEdit"
         (click)="deleteTask(task._id)"
         type="button"
         class="btn btn-danger"
       >
         Delete
+      </button>
+      <button
+        *ngIf="task.isOnEdit"
+        (click)="saveNewTaskText()"
+        type="button"
+        class="btn btn-success"
+      >
+        Save
+      </button>
+      <button
+        *ngIf="task.isOnEdit"
+        (click)="cancelEdit()"
+        type="button"
+        class="btn btn-danger"
+      >
+        Cancel
       </button>
     </div>
   </li>
